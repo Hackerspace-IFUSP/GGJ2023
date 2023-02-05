@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dse52w2st3wx1"]
 
-[ext_resource type="AudioStream" uid="uid://dgufnmloncucu" path="res://Music/Mad Bossa.ogg" id="1_2aj6b"]
+[ext_resource type="AudioStream" uid="uid://c6cl1gwkth57m" path="res://Music/Mad Bossa.ogg" id="1_2aj6b"]
 [ext_resource type="Script" path="res://Codes/Music.gd" id="2_xi53j"]
 
 [node name="MUSIC" type="Node"]

@@ -18,13 +18,13 @@ func _process(delta):
 func release():
 	var mob = enemy1.instantiate()
 	mob.position = position
-	get_parent().add_child(mob)
+	get_parent().add_child.call_deferred(mob)
 	
 func release2():
 	var mob = enemy2.instantiate()
 	mob.position.x = position.x
 	mob.position.y = position.y - 50
-	get_parent().add_child(mob)
+	get_parent().add_child.call_deferred(mob)
 
 func _on_timer_timeout():
 	cont = randi() % 20 + 0

@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/scenario_full.png-4f7d7122675f3ba2f4209d5dd56
 [params]
 
 compress/mode=0
-compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
+compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
