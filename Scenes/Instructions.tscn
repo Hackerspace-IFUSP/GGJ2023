@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://qbvyno2ho264"]
+
+[ext_resource type="Script" path="res://Codes/Instructions.gd" id="1_5gqhe"]
+[ext_resource type="Texture2D" uid="uid://bqpigyw785jsl" path="res://Sprites/scenario_full (1).png" id="2_fvkfl"]
+[ext_resource type="FontFile" uid="uid://g4k0vgcg2i10" path="res://Font/PrStart.ttf" id="3_33ygx"]
+[ext_resource type="Texture2D" uid="uid://mi2wkgdme2ar" path="res://Sprites/raiz radical-Sheet.png" id="5_f3kmj"]
+[ext_resource type="Texture2D" uid="uid://bkd6nx5suak0l" path="res://Sprites/mushroom-Sheet.png" id="5_vy2ai"]
+[ext_resource type="Texture2D" uid="uid://bfg6o64l6f5k2" path="res://Sprites/Colectablesl.png" id="6_qyy3m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tf2g"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fd2c0"]
+bg_color = Color(0, 0, 0, 0.294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywihc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqc45"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Title_Screen" type="Node"]
+script = ExtResource("1_5gqhe")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(300, 200)
+texture = ExtResource("2_fvkfl")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 208.0
+offset_top = 250.0
+offset_right = 392.0
+offset_bottom = 274.0
+theme_override_fonts/font = ExtResource("3_33ygx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7tf2g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fd2c0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ywihc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hqc45")
+text = "Play!"
+
+[node name="Text" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 65.0
+offset_right = 600.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("3_33ygx")
+text = "PRESS UP, W OR SPACE TO JUMP
+
+
+
+
+TRY NOT TO TOUCH THE OBSTACLES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(300, 120)
+texture = ExtResource("5_f3kmj")
+hframes = 23
+frame = 14
+
+[node name="obs" type="Sprite2D" parent="."]
+position = Vector2(280, 218)
+texture = ExtResource("5_vy2ai")
+hframes = 2
+frame = 1
+
+[node name="obs2" type="Sprite2D" parent="."]
+position = Vector2(320, 222)
+texture = ExtResource("6_qyy3m")
+hframes = 8
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

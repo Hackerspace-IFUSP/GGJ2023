@@ -23,12 +23,13 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		
 	jump()
-	get_down()
+#	get_down()
 	
 	move_and_slide()
 
 func jump():
 	if Input.is_action_just_pressed("ui_up") and is_on_floor() and status == alive:
+		$Jump.play()
 		velocity.y = JUMP_VELOCITY
 		$anim.play("jumping")
 		await get_tree().create_timer(.6).timeout
@@ -48,14 +49,25 @@ func get_down():
 		
 func play_dead():
 	status = dead
+	$Die.play()
 	remove_from_group("Player")
 	$anim.play("dead")
 	await get_tree().create_timer(1).timeout
-	get_tree().reload_current_scene()
+	go_to_endscreen()
 
 func play_dead2():
 	status = dead
+	$Die.play()
 	remove_from_group("Player")
 	$anim.play("dead2")
 	await get_tree().create_timer(1).timeout
-	get_tree().reload_current_scene()
+	go_to_endscreen()
+
+
+func go_to_endscreen():
+	if GAME.score <= 500:
+		get_tree().change_scene_to_file("res://Scenes/end_1.tscn")
+	elif GAME.score > 500 and GAME.score <= 2000:
+		get_tree().change_scene_to_file("res://Scenes/end_2.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/end_3.tscn")

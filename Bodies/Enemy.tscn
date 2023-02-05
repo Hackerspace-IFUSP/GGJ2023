@@ -3,10 +3,37 @@
 [ext_resource type="Script" path="res://Codes/Stone.gd" id="1_gwnaj"]
 [ext_resource type="Texture2D" uid="uid://bkd6nx5suak0l" path="res://Sprites/mushroom-Sheet.png" id="2_1ildg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ukgk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2j2v4"]
 size = Vector2(23, 22)
 
-[sub_resource type="Animation" id="Animation_o6qtu"]
+[sub_resource type="Animation" id="Animation_lgu44"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3hhdl"]
 resource_name = "anim"
 length = 0.8
 loop_mode = 1
@@ -35,37 +62,10 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, -10)]
 }
 
-[sub_resource type="Animation" id="Animation_6mx5v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_44c5w"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wq80p"]
 _data = {
-"RESET": SubResource("Animation_6mx5v"),
-"anim": SubResource("Animation_o6qtu")
+"RESET": SubResource("Animation_lgu44"),
+"anim": SubResource("Animation_3hhdl")
 }
 
 [node name="Enemy" type="CharacterBody2D" groups=["Air"]]
@@ -80,11 +80,11 @@ hframes = 2
 
 [node name="shape" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0.5, 2)
-shape = SubResource("RectangleShape2D_0ukgk")
+shape = SubResource("RectangleShape2D_2j2v4")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_44c5w")
+"": SubResource("AnimationLibrary_wq80p")
 }
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

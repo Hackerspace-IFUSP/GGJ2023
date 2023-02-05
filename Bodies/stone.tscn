@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Codes/Stone.gd" id="1_o02c2"]
 [ext_resource type="Texture2D" uid="uid://bfg6o64l6f5k2" path="res://Sprites/Colectablesl.png" id="2_cq136"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ukgk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq0sl"]
 size = Vector2(23, 22)
 
 [node name="Stone" type="CharacterBody2D" groups=["Ground"]]
@@ -17,6 +17,6 @@ hframes = 8
 
 [node name="shape" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0.5, 2)
-shape = SubResource("RectangleShape2D_0ukgk")
+shape = SubResource("RectangleShape2D_pq0sl")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
